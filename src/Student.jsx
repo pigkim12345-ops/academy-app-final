@@ -314,7 +314,7 @@ function Student() {
           </label>
 
           <label>
-            이용 시간
+            학습 시간
             <select
               value={duration}
               onChange={(event) => setDuration(event.target.value)}
