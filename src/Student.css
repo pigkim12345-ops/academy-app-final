@@ -1,35 +1,239 @@
-.container {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 20px;
-  background: #f8f9fa;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  font-family: Arial;
+* {
+  box-sizing: border-box;
 }
 
-h1 {
+body {
+  margin: 0;
+  background: #eef2f7;
+  color: #111827;
+  font-family: Arial, sans-serif;
+}
+
+.studentPage {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  padding: 20px 14px 40px;
+}
+
+.hero,
+.calendarPanel,
+.selectedPanel,
+.formPanel {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.hero h1,
+.formPanel h2,
+.selectedPanel h2 {
+  margin: 0;
+}
+
+.hero p {
+  margin: 8px 0 0;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.calendarHeader {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
   text-align: center;
 }
 
-input, select {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  background: #4f46e5;
-  color: white;
-  border: none;
-  border-radius: 8px;
+.calendarHeader button,
+.dayButton,
+.submitButton,
+.cancelButton {
+  border: 0;
   cursor: pointer;
+  font-weight: 700;
 }
 
-button:hover {
-  background: #3730a3;
+.calendarHeader button {
+  width: 44px;
+  height: 40px;
+  border-radius: 8px;
+  background: #e2e8f0;
+  color: #0f172a;
+  font-size: 24px;
+}
+
+.weekdays,
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.weekdays {
+  margin-bottom: 6px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.emptyDay,
+.dayButton {
+  min-height: 58px;
+}
+
+.dayButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #111827;
+}
+
+.dayButton small {
+  color: #2563eb;
+  font-size: 11px;
+}
+
+.dayButton.selected {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.dayButton.selected small {
+  color: #dbeafe;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.sectionTitle span {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.emptyText,
+.helperText {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.requestList {
+  display: grid;
+  gap: 10px;
+}
+
+.requestCard {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.requestCard p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.timeBlock {
+  color: #0f172a;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.cancelButton {
+  min-width: 54px;
+  height: 36px;
+  border-radius: 8px;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.formPanel {
+  display: grid;
+  gap: 12px;
+}
+
+.formPanel label {
+  display: grid;
+  gap: 6px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.formPanel input,
+.formPanel select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 16px;
+}
+
+.timeInputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.submitButton {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+@media (max-width: 520px) {
+  .studentPage {
+    padding: 12px 10px 30px;
+  }
+
+  .hero,
+  .calendarPanel,
+  .selectedPanel,
+  .formPanel {
+    padding: 14px;
+  }
+
+  .emptyDay,
+  .dayButton {
+    min-height: 50px;
+  }
+
+  .requestCard {
+    grid-template-columns: 1fr;
+  }
+
+  .timeBlock {
+    white-space: normal;
+  }
 }

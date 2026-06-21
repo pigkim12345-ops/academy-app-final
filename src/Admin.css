@@ -1,63 +1,279 @@
-.container {
-  max-width: 650px;
-  margin: 40px auto;
-  padding: 15px;
-  font-family: Arial;
-  background: #f3f4f6;
+* {
+  box-sizing: border-box;
 }
 
-/* 카드 */
-.card {
-  background: white;
-  border-radius: 14px;
-  padding: 16px;
-  margin-bottom: 16px;
+body {
+  margin: 0;
+  background: #eef2f7;
+  color: #111827;
+  font-family: Arial, sans-serif;
+}
+
+.adminPage {
+  width: min(100%, 860px);
+  margin: 0 auto;
+  padding: 20px 14px 40px;
+}
+
+.loginPage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.loginPanel,
+.adminHeader,
+.statsGrid,
+.calendarPanel,
+.filterPanel,
+.requestSection {
+  background: #ffffff;
   border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
 }
 
-/* 텍스트 간격 */
-.card p {
-  margin: 6px 0;
+.loginPanel {
+  width: min(100%, 420px);
+  display: grid;
+  gap: 12px;
 }
 
-/* 버튼 그룹 */
+.adminHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.adminHeader h1,
+.loginPanel h1,
+.requestSection h2 {
+  margin: 0;
+}
+
+.adminHeader p {
+  margin: 8px 0 0;
+  color: #64748b;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.statsGrid div {
+  padding: 14px;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.statsGrid span {
+  display: block;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.statsGrid strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 24px;
+}
+
+.calendarHeader {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.calendarHeader button {
+  width: 44px;
+  height: 40px;
+  border-radius: 8px;
+  background: #e2e8f0;
+  color: #0f172a;
+  font-size: 24px;
+}
+
+.weekdays,
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.weekdays {
+  margin-bottom: 6px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.emptyDay,
+.dayButton {
+  min-height: 58px;
+}
+
+.dayButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #111827;
+}
+
+.dayButton small {
+  color: #2563eb;
+  font-size: 11px;
+}
+
+.dayButton.selected {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.dayButton.selected small {
+  color: #dbeafe;
+}
+
+.filterPanel {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr auto;
+  gap: 10px;
+}
+
+.loginPanel input,
+.filterPanel input,
+.filterPanel select,
+.card textarea {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 15px;
+}
+
+.loginPanel button,
+.refreshButton,
+.filterPanel button,
+.btnGroup button {
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.sectionTitle span {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.emptyText {
+  margin: 0;
+  color: #64748b;
+}
+
+.card {
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardTop strong {
+  font-size: 18px;
+}
+
+.cardTop p,
+.timeText {
+  margin: 6px 0 0;
+  color: #64748b;
+}
+
+.cardTop span {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.card textarea {
+  min-height: 78px;
+  margin-top: 12px;
+  resize: vertical;
+}
+
 .btnGroup {
   display: flex;
   gap: 10px;
   margin-top: 12px;
 }
 
-/* 버튼 기본 */
-button {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.2s;
-}
-
-/* 승인 */
-.approve {
-  background: #22c55e;
-  color: white;
-}
-
-/* 거절 */
-.reject {
+.btnGroup .delete {
   background: #ef4444;
-  color: white;
 }
 
-/* 삭제 */
-.delete {
-  background: #64748b;
-  color: white;
-}
+@media (max-width: 680px) {
+  .adminPage {
+    padding: 12px 10px 30px;
+  }
 
-/* hover */
-button:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
+  .adminHeader {
+    display: grid;
+  }
+
+  .statsGrid,
+  .filterPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .emptyDay,
+  .dayButton {
+    min-height: 50px;
+  }
 }
